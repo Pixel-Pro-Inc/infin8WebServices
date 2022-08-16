@@ -2,9 +2,6 @@
 using API.Interfaces;
 using Firebase.Database;
 using Firebase.Database.Query;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
 
 namespace API.Services
 {
@@ -13,8 +10,8 @@ namespace API.Services
         FirebaseClient firebaseClient;
         public FirebaseService()
         {
-            var auth = "1idKB3QV2l6RoviN980uo37KWmEumUSCbBfNS5xK";//Environment.GetEnvironmentVariable("FirebaseAuthToken");
-            var url = "https://infin8-75991678-default-rtdb.firebaseio.com/";//Environment.GetEnvironmentVariable("FirebaseBasePath");
+            var auth = Environment.GetEnvironmentVariable("FirebaseAuthToken");
+            var url = Environment.GetEnvironmentVariable("FirebaseBasePath");
 
             firebaseClient = new FirebaseClient(url,
               new FirebaseOptions
