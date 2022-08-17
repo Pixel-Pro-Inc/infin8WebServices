@@ -1,6 +1,7 @@
 ﻿using API.Entities;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace API.Controllers
 {
@@ -13,9 +14,11 @@ namespace API.Controllers
         }
 
         [HttpPost("log")]
-        public void LogData(UserDataLog data)
+        public void LogData([FromForm] string data)
         {
-            _firebaseService.StoreUserData(data);
+            var _data = JsonConvert.DeserializeObject<UserDataLog>(data);
+
+            _firebaseService.StoreUserData(_data);
         }
     }
 }
