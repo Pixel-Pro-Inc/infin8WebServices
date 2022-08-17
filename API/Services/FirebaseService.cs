@@ -35,10 +35,10 @@ namespace API.Services
 
             if(oldData != null)
             {
-                if (oldData.timePlayed != null)
+                if (data.timePlayed != null)
                     oldData.timePlayed.AddRange(data.timePlayed);
 
-                if (oldData.adsWatched != null)
+                if (data.adsWatched != null)
                     oldData.adsWatched.AddRange(data.adsWatched);
 
                 oldData.key = data.key;
